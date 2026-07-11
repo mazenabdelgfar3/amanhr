@@ -3,748 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نظام أمان | Aman System — منصة الأمن الذكي المتكاملة</title>
-  <meta name="description" content="نظام أمان - المنصة الذكية المتكاملة لإدارة الأمن والحماية بتقنيات متقدمة وذكاء اصطناعي." />
+  <meta http-equiv="refresh" content="2; url=http://localhost:3000" />
+  <title>جاري التوجيه إلى نظام Aman HR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #09090b;
+      color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      padding: 2rem;
+      border: 1px solid #27272a;
+      border-radius: 1rem;
+      background-color: #18181b;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.4s ease-out;
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 0.85rem;
+      color: #a1a1aa;
+      margin-bottom: 1.5rem;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #27272a;
+      border-top: 3px solid #fafafa;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem auto;
+    }
+    .btn-manual {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #09090b;
+      background-color: #fafafa;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s;
+    }
+    .btn-manual:hover {
+      background-color: #e4e4e7;
+    }
+    .server-status {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #27272a;
+      font-size: 0.75rem;
+      color: #71717a;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script>
+    // Redirect immediately if possible
+    window.location.href = "http://localhost:3000";
+  </script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 2L4 9V19C4 28.4 11.1 37.2 20 39C28.9 37.2 36 28.4 36 19V9L20 2Z" fill="url(#sg1)"/>
-            <path d="M15 20L18.5 23.5L26 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs>
-              <linearGradient id="sg1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <span class="logo-ar">نظام أمان</span>
-          <span class="logo-en">AMAN SYSTEM</span>
-        </div>
-      </div>
+  <div class="container">
+    <div class="spinner"></div>
+    <h1>جاري فتح نظام Aman HR...</h1>
+    <p>يتم الآن تحويلك تلقائياً إلى لوحة التحكم على الاستضافة المحلية.</p>
+    
+    <a href="http://localhost:3000" class="btn-manual">اضغط هنا للانتقال المباشر</a>
 
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
-        <li><a href="#features" class="nav-link">المميزات</a></li>
-        <li><a href="#dashboard" class="nav-link">لوحة التحكم</a></li>
-        <li><a href="#stats" class="nav-link">الإحصائيات</a></li>
-        <li><a href="#pricing" class="nav-link">الأسعار</a></li>
-        <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="#" class="btn-outline">تسجيل الدخول</a>
-        <a href="#" class="btn-primary">ابدأ مجاناً</a>
-      </div>
-
-      <button class="menu-toggle" id="menuToggle">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#features">المميزات</a></li>
-        <li><a href="#dashboard">لوحة التحكم</a></li>
-        <li><a href="#stats">الإحصائيات</a></li>
-        <li><a href="#pricing">الأسعار</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-      <a href="#" class="btn-primary wfull">ابدأ مجاناً</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-    <canvas id="heroCanvas"></canvas>
-
-    <div class="container hero-wrap">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <div class="badge-dot"></div>
-          <span>منصة الأمن الرائدة في المنطقة العربية</span>
-        </div>
-
-        <h1 class="hero-title">
-          حماية <span class="grad-text">ذكية</span><br/>لا تنام أبداً
-        </h1>
-
-        <p class="hero-desc">
-          منصة الأمن المتكاملة التي تجمع بين الذكاء الاصطناعي وأحدث تقنيات المراقبة
-          لتوفير درع حماية شامل لمنشآتك على مدار الساعة.
-        </p>
-
-        <div class="hero-btns">
-          <a href="#" class="btn-hero-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
-            ابدأ تجربتك المجانية
-          </a>
-          <a href="#dashboard" class="btn-hero-ghost">شاهد الديمو</a>
-        </div>
-
-        <div class="hero-trust">
-          <div class="trust-avs">
-            <div class="tav c1">م</div>
-            <div class="tav c2">س</div>
-            <div class="tav c3">ع</div>
-            <div class="tav c4">خ</div>
-          </div>
-          <div class="trust-copy">
-            <div class="trust-stars">★★★★★</div>
-            <p>موثوق من <strong>+10,000</strong> منشأة</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hcard-top">
-            <div class="hstatus">
-              <div class="hstatus-dot"></div>
-              <span>النظام يعمل بكفاءة</span>
-            </div>
-            <div class="htime" id="liveTime"></div>
-          </div>
-          <img src="dashboard.jpg" alt="لوحة تحكم نظام أمان" class="dash-img"/>
-          <div class="hcard-metrics">
-            <div class="hmetric">
-              <div class="hm-icon">🛡️</div>
-              <div class="hm-val">0</div>
-              <div class="hm-lbl">تهديد نشط</div>
-            </div>
-            <div class="hmetric">
-              <div class="hm-icon">📹</div>
-              <div class="hm-val">247</div>
-              <div class="hm-lbl">كاميرا</div>
-            </div>
-            <div class="hmetric">
-              <div class="hm-icon">👤</div>
-              <div class="hm-val">1,284</div>
-              <div class="hm-lbl">مستخدم</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="float-card fc-warn">
-          <span class="fc-ico">⚠️</span>
-          <div>
-            <div class="fc-title">تنبيه أمني</div>
-            <div class="fc-sub">دخول غير مصرح — تم الحجب</div>
-          </div>
-          <div class="fc-badge red">محجوب</div>
-        </div>
-
-        <div class="float-card fc-ok">
-          <span class="fc-ico">✅</span>
-          <div>
-            <div class="fc-title">دخول مصرح</div>
-            <div class="fc-sub">مستخدم معتمد — آمن</div>
-          </div>
-          <div class="fc-badge green">آمن</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNERS -->
-  <section class="partners-section">
-    <div class="watermark-bg">AMAN SYSTEM</div>
-    <div class="container flex-column-center">
-      
-      <!-- Intro Section -->
-      <div class="partners-intro">
-        <div class="partners-badge">حلول رقمية متكاملة لتنمية أعمالك</div>
-        <h2 class="partners-heading">نبني أنظمة ومنتجات رقمية تساعد الشركات على العمل بذكاء أكبر.</h2>
-        <div class="partners-desc">
-          <p>في AMAN SYSTEM نساعد الشركات على التحول الرقمي من خلال تصميم وتطوير حلول برمجية متكاملة تناسب طبيعة كل نشاط.</p>
-          <p>نطور أنظمة ERP وCRM وPOS، ونبني تطبيقات الويب والموبايل، ونطور منتجات SaaS القابلة للاشتراك الشهري، كما نقدم حلول الأتمتة (Automation) لربط الأنظمة وتقليل الأعمال اليدوية وتحسين سير العمل.</p>
-          <p>نساعد المتاجر الإلكترونية على بناء وتطوير متاجر Shopify الاحترافية، مع تخصيص الثيمات، وربط بوابات الدفع، وأنظمة الشحن، وإدارة الطلبات، والتكامل مع الأنظمة الخارجية.</p>
-          <p>كما نطور أنظمة متخصصة للقطاعات المختلفة مثل العيادات والمراكز الطبية، وتشمل إدارة الحجوزات، والملفات الطبية، والفواتير، وإشعارات المرضى، وربط العمليات بالأتمتة لتوفير الوقت وتقليل الأخطاء.</p>
-          <p>ونبني لوحات تحكم احترافية، وأنظمة مخصصة، وتكاملات API، وحلول سحابية تساعد الشركات على النمو بثقة واستقرار.</p>
-        </div>
-      </div>
-
-      <!-- Service Chips -->
-      <div class="services-chips-grid">
-        <div class="service-chip">ERP Systems</div>
-        <div class="service-chip">CRM Solutions</div>
-        <div class="service-chip">POS Systems</div>
-        <div class="service-chip">Custom Business Systems</div>
-        <div class="service-chip">Web Applications</div>
-        <div class="service-chip">Mobile Applications</div>
-        <div class="service-chip">Shopify Development</div>
-        <div class="service-chip">Shopify Custom Apps</div>
-        <div class="service-chip">SaaS Platforms</div>
-        <div class="service-chip">Business Automation</div>
-        <div class="service-chip">Workflow Automation</div>
-        <div class="service-chip">AI Integration</div>
-        <div class="service-chip">Clinic Management Systems</div>
-        <div class="service-chip">Medical Center Systems</div>
-        <div class="service-chip">E-commerce Solutions</div>
-        <div class="service-chip">API Integration</div>
-        <div class="service-chip">Dashboards & Analytics</div>
-        <div class="service-chip">Cloud Solutions</div>
-        <div class="service-chip">Hosting & Maintenance</div>
-        <div class="service-chip">Technical Support</div>
-      </div>
-
-      <!-- Client Grid Header -->
-      <div class="client-grid-header">
-        <h3>يثق بنا عملاؤنا لبناء حلول تقنية طويلة الأمد.</h3>
-        <p>نعمل مع شركات ومؤسسات من مختلف القطاعات لتطوير أنظمة مستقرة وقابلة للتوسع، تجمع بين الأداء العالي، وسهولة الاستخدام، وأفضل الممارسات البرمجية.</p>
-      </div>
-
-      <!-- Client Grid -->
-      <div class="partners-grid">
-        <div class="partner-card">
-          <span class="pc-title">برنامج ياسين ERP لإدارة معرض مراتب</span>
-          <span class="pc-sub">YASEEN ERP SYSTEM</span>
-        </div>
-        <div class="partner-card">
-          <span class="pc-title">برنامج فواتير لمعرض فحص سيارات</span>
-          <span class="pc-sub">CAR INSPECTION INVOICES</span>
-        </div>
-        <div class="partner-card">
-          <span class="pc-title">سيستم حسابات عيادة الرواد الطبية</span>
-          <span class="pc-sub">EL ROWAD MEDICAL CRM</span>
-        </div>
-        <div class="partner-card">
-          <span class="pc-title">سيستم مبيعات سوبرماركت الأمانة</span>
-          <span class="pc-sub">EL AMANA SUPERMARKET POS</span>
-        </div>
-        <div class="partner-card">
-          <span class="pc-title">برنامج إدارة مصانع القاهرة للمنسوجات</span>
-          <span class="pc-sub">CAIRO TEXTILE FACTORY ERP</span>
-        </div>
-        <div class="partner-card">
-          <span class="pc-title">سيستم مخازن شركة الفراعنة للمقاولات</span>
-          <span class="pc-sub">PHARAOHS CONTRACTING ERP</span>
-        </div>
-      </div>
-
-      <!-- Bottom Statement -->
-      <div class="bottom-statement">
-        <p class="bs-prefix">لا نقدم برامج جاهزة للجميع...</p>
-        <p class="bs-text">بل نصمم حلولاً رقمية تناسب طبيعة عملك، وتساعدك على إدارة أعمالك بكفاءة، وتحقيق نمو مستدام، مع بنية تقنية قابلة للتوسع في المستقبل.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features-section" id="features">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">المميزات</div>
-        <h2 class="sec-title">منظومة أمنية متكاملة</h2>
-        <p class="sec-desc">نجمع أحدث تقنيات الأمن والذكاء الاصطناعي في منصة واحدة سهلة الاستخدام</p>
-      </div>
-
-      <div class="feats-grid">
-        <div class="feat-card feat-lg">
-          <div class="feat-top">
-            <div class="feat-icon fi-blue">
-              <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-                <path d="M12 2L4 6V12C4 16.4 7.6 20.4 12 22C16.4 20.4 20 16.4 20 12V6L12 2Z" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-              </svg>
-            </div>
-            <span class="feat-badge-hot">الأكثر طلباً</span>
-          </div>
-          <h3>المراقبة الذكية بالذكاء الاصطناعي</h3>
-          <p>كاميرات مدمجة بنظام تعرف على الوجه والسلوك الشاذ مع تنبيهات فورية</p>
-          <div class="ai-visual">
-            <div class="scan-anim">
-              <div class="scan-ring sr1"></div>
-              <div class="scan-ring sr2"></div>
-              <div class="scan-ring sr3"></div>
-              <div class="scan-face">👤</div>
-            </div>
-            <div class="ai-tags">
-              <div class="ai-tag ok">✓ هوية معتمدة</div>
-              <div class="ai-tag ok">✓ لا تهديد</div>
-              <div class="ai-tag warn">⚠ مراقبة</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon fi-gold">
-            <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-              <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>التحكم في الوصول</h3>
-          <p>إدارة صلاحيات الدخول والخروج مع سجل زمني شامل</p>
-          <div class="mini-bars">
-            <div class="mb mb1"></div><div class="mb mb2"></div><div class="mb mb3"></div><div class="mb mb4"></div><div class="mb mb5"></div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon fi-purple">
-            <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>استجابة فورية للتهديدات</h3>
-          <p>نظام إنذار يكتشف التهديدات ويتصرف في ثوانٍ</p>
-          <div class="prog-wrap">
-            <div class="prog-lbl">مستوى الأمان</div>
-            <div class="prog-bar"><div class="prog-fill" style="width:94%">94%</div></div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon fi-green">
-            <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-              <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>لوحة تحكم متقدمة</h3>
-          <p>تصور شامل لجميع أنظمة الأمن من مكان واحد</p>
-          <svg class="donut-svg" viewBox="0 0 80 80" width="80" height="80">
-            <circle cx="40" cy="40" r="28" fill="none" stroke="#1e293b" stroke-width="10"/>
-            <circle cx="40" cy="40" r="28" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="110 65.9" stroke-dashoffset="20" transform="rotate(-90 40 40)"/>
-            <circle cx="40" cy="40" r="28" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="45 130.9" stroke-dashoffset="-90" transform="rotate(-90 40 40)"/>
-            <text x="40" y="45" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="Cairo">94%</text>
-          </svg>
-        </div>
-
-        <div class="feat-card feat-wide">
-          <div class="feat-icon fi-red">
-            <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3>تشفير عسكري المستوى AES-256</h3>
-          <p>حماية كاملة لبياناتك وتسجيلاتك مع نسخ احتياطي سحابي آمن</p>
-          <div class="enc-tags">
-            <span class="enc-tag">AES-256</span>
-            <span class="enc-tag">E2E Encryption</span>
-            <span class="enc-tag">ISO 27001</span>
-            <span class="enc-tag">GDPR Compliant</span>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon fi-cyan">
-            <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>إدارة الفريق والأذونات</h3>
-          <p>تحكم كامل في صلاحيات الفريق مع سجل تدقيق شامل</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats-section" id="stats">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">بالأرقام</div>
-        <h2 class="sec-title">أرقام تتحدث عن نفسها</h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-emoji">🏢</div>
-          <div class="stat-row">
-            <span class="stat-num" data-target="10000">0</span>
-            <span class="stat-suf">+</span>
-          </div>
-          <div class="stat-lbl">منشأة محمية</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-emoji">📹</div>
-          <div class="stat-row">
-            <span class="stat-num" data-target="500000">0</span>
-            <span class="stat-suf">+</span>
-          </div>
-          <div class="stat-lbl">كاميرا متصلة</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-emoji">🛡️</div>
-          <div class="stat-row">
-            <span class="stat-num" data-target="99">0</span>
-            <span class="stat-suf">%</span>
-          </div>
-          <div class="stat-lbl">دقة الكشف</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-emoji">⚡</div>
-          <div class="stat-row">
-            <span class="stat-num" data-target="24">0</span>
-            <span class="stat-suf">/7</span>
-          </div>
-          <div class="stat-lbl">مراقبة مستمرة</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DASHBOARD PREVIEW -->
-  <section class="dash-section" id="dashboard">
-    <div class="container">
-      <div class="dash-grid">
-        <div class="dash-text">
-          <div class="sec-tag">لوحة التحكم</div>
-          <h2 class="sec-title">كل شيء تحت سيطرتك</h2>
-          <p>لوحة تحكم ذكية تجمع كل مؤشرات الأمن في مشهد واحد. تتبع الأحداث وإدارة الأجهزة ومراجعة التقارير بضغطة واحدة.</p>
-          <ul class="dash-list">
-            <li>
-              <div class="dl-ico">📊</div>
-              <div><strong>تحليلات لحظية</strong><span>بيانات حية محدثة كل ثانية</span></div>
-            </li>
-            <li>
-              <div class="dl-ico">🔔</div>
-              <div><strong>إشعارات ذكية</strong><span>تنبيهات فورية عبر الهاتف والبريد</span></div>
-            </li>
-            <li>
-              <div class="dl-ico">📋</div>
-              <div><strong>تقارير تفصيلية</strong><span>تصدير PDF وExcel بضغطة واحدة</span></div>
-            </li>
-            <li>
-              <div class="dl-ico">🌐</div>
-              <div><strong>وصول من أي مكان</strong><span>متوافق مع جميع الأجهزة</span></div>
-            </li>
-          </ul>
-          <a href="#" class="btn-primary">استكشف لوحة التحكم</a>
-        </div>
-
-        <div class="dash-frame-wrap">
-          <div class="dash-frame">
-            <div class="df-bar">
-              <div class="df-dots"><span></span><span></span><span></span></div>
-              <div class="df-url">dashboard.amansystem.com</div>
-            </div>
-            <img src="dashboard.jpg" alt="Dashboard Preview" class="df-img"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">كيف يعمل</div>
-        <h2 class="sec-title">ابدأ في 3 خطوات بسيطة</h2>
-        <p class="sec-desc">بدون تعقيدات، بدون خبرة تقنية مطلوبة</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-emoji">🔧</div>
-          <h3>اشترك وثبّت</h3>
-          <p>سجّل حسابك وربط أجهزتك خلال دقائق مع مساعدة فريقنا</p>
-        </div>
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-emoji">⚙️</div>
-          <h3>خصّص الإعدادات</h3>
-          <p>اضبط مستويات الأمان والتنبيهات حسب احتياجاتك</p>
-        </div>
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-emoji">🛡️</div>
-          <h3>استمتع بالأمان الكامل</h3>
-          <p>راقب وتحكم من أي مكان على مدار الساعة</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testi-section">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">آراء العملاء</div>
-        <h2 class="sec-title">ماذا يقولون عنا</h2>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p>"نظام أمان غيّر طريقة إدارتنا لأمن المنشأة بالكامل. اكتشاف فوري وتقارير دقيقة تفوق التوقعات."</p>
-          <div class="testi-author">
-            <div class="tav-c c1">م.أ</div>
-            <div>
-              <strong>م. أحمد السالم</strong>
-              <span>مدير الأمن — شركة الطاقة الوطنية</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card testi-feat">
-          <div class="testi-stars">★★★★★</div>
-          <p>"أفضل استثمار قمنا به لحماية منشآتنا. الدعم الفني ممتاز والنظام لم يخذلنا أبداً."</p>
-          <div class="testi-author">
-            <div class="tav-c c2">س.م</div>
-            <div>
-              <strong>سارة المحمد</strong>
-              <span>المديرة التنفيذية — سلسلة فنادق الخليج</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p>"وفّر علينا أكثر من 70% من تكاليف الأمن التقليدي مع مستوى حماية أعلى بكثير."</p>
-          <div class="testi-author">
-            <div class="tav-c c3">ع.خ</div>
-            <div>
-              <strong>عبدالله الخالد</strong>
-              <span>رئيس العمليات — مجموعة الراشد</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">الأسعار</div>
-        <h2 class="sec-title">اختر الخطة المناسبة</h2>
-        <p class="sec-desc">جميع الخطط تشمل 30 يوم تجربة مجانية بدون بطاقة ائتمان</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="pc-name">الأساسي</div>
-          <div class="pc-price"><span class="pc-cur">ر.س</span><span class="pc-amt">299</span><span class="pc-per">/شهر</span></div>
-          <p class="pc-desc">مثالي للمنشآت الصغيرة</p>
-          <ul class="pc-feats">
-            <li class="pf-yes">✓ حتى 20 كاميرا</li>
-            <li class="pf-yes">✓ تخزين 30 يوم</li>
-            <li class="pf-yes">✓ تنبيهات فورية</li>
-            <li class="pf-yes">✓ دعم فني 8 ساعات</li>
-            <li class="pf-no">✗ تعرف على الوجه</li>
-            <li class="pf-no">✗ تحليلات متقدمة</li>
-          </ul>
-          <a href="#" class="pc-btn-outline">ابدأ مجاناً</a>
-        </div>
-
-        <div class="price-card pc-pop">
-          <div class="pc-pop-badge">الأكثر شيوعاً</div>
-          <div class="pc-name">الاحترافي</div>
-          <div class="pc-price"><span class="pc-cur">ر.س</span><span class="pc-amt">799</span><span class="pc-per">/شهر</span></div>
-          <p class="pc-desc">للمؤسسات المتوسطة والكبيرة</p>
-          <ul class="pc-feats">
-            <li class="pf-yes">✓ حتى 100 كاميرا</li>
-            <li class="pf-yes">✓ تخزين 90 يوم</li>
-            <li class="pf-yes">✓ تنبيهات فورية</li>
-            <li class="pf-yes">✓ دعم فني 24/7</li>
-            <li class="pf-yes">✓ تعرف على الوجه</li>
-            <li class="pf-yes">✓ تحليلات متقدمة</li>
-          </ul>
-          <a href="#" class="pc-btn-filled">ابدأ مجاناً</a>
-        </div>
-
-        <div class="price-card">
-          <div class="pc-name">المؤسسي</div>
-          <div class="pc-price-custom">تواصل معنا</div>
-          <p class="pc-desc">حلول مخصصة للمؤسسات الكبرى</p>
-          <ul class="pc-feats">
-            <li class="pf-yes">✓ كاميرات غير محدودة</li>
-            <li class="pf-yes">✓ تخزين غير محدود</li>
-            <li class="pf-yes">✓ مدير حساب مخصص</li>
-            <li class="pf-yes">✓ جميع المميزات</li>
-            <li class="pf-yes">✓ تكامل API كامل</li>
-            <li class="pf-yes">✓ SLA مضمون</li>
-          </ul>
-          <a href="#contact" class="pc-btn-outline">تواصل معنا</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-glow1"></div>
-    <div class="cta-glow2"></div>
-    <div class="container">
-      <div class="cta-wrap">
-        <h2>جاهز لتأمين منشأتك؟</h2>
-        <p>انضم إلى أكثر من 10,000 منشأة تثق بنظام أمان لحماية أصولها وأعمالها</p>
-        <div class="cta-btns">
-          <a href="#" class="btn-hero-primary">ابدأ تجربتك المجانية الآن</a>
-          <a href="#contact" class="btn-hero-ghost">تحدث مع خبير أمني</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="sec-tag">تواصل معنا</div>
-          <h2>نحن هنا لمساعدتك</h2>
-          <p>فريقنا من الخبراء الأمنيين جاهز لتصميم حل أمني متكامل يناسب احتياجاتك</p>
-          <div class="ci-list">
-            <div class="ci-item">
-              <div class="ci-ico">📍</div>
-              <div><div class="ci-lbl">العنوان</div><div class="ci-val">الرياض، المملكة العربية السعودية</div></div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-ico">📞</div>
-              <div><div class="ci-lbl">الهاتف</div><div class="ci-val" dir="ltr">+966 11 XXX XXXX</div></div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-ico">✉️</div>
-              <div><div class="ci-lbl">البريد الإلكتروني</div><div class="ci-val">info@amansystem.com</div></div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-ico">🕐</div>
-              <div><div class="ci-lbl">ساعات العمل</div><div class="ci-val">الأحد - الخميس، 8ص - 5م</div></div>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <div class="form-grp">
-              <label>الاسم الكامل</label>
-              <input type="text" placeholder="محمد العلي" required/>
-            </div>
-            <div class="form-grp">
-              <label>البريد الإلكتروني</label>
-              <input type="email" placeholder="example@email.com" required/>
-            </div>
-          </div>
-          <div class="form-grp">
-            <label>اسم المنشأة</label>
-            <input type="text" placeholder="شركة الأمن المتكامل"/>
-          </div>
-          <div class="form-grp">
-            <label>الموضوع</label>
-            <select>
-              <option>اختر الموضوع</option>
-              <option>استفسار عن الأسعار</option>
-              <option>طلب عرض توضيحي</option>
-              <option>الدعم الفني</option>
-              <option>شراكة أعمال</option>
-            </select>
-          </div>
-          <div class="form-grp">
-            <label>رسالتك</label>
-            <textarea placeholder="أخبرنا عن احتياجاتك الأمنية..." rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn-primary wfull">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            إرسال الرسالة
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="nav-logo">
-              <div class="logo-icon">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <path d="M20 2L4 9V19C4 28.4 11.1 37.2 20 39C28.9 37.2 36 28.4 36 19V9L20 2Z" fill="url(#sg2)"/>
-                  <path d="M15 20L18.5 23.5L26 16" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                  <defs>
-                    <linearGradient id="sg2" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="logo-text">
-                <span class="logo-ar">نظام أمان</span>
-                <span class="logo-en">AMAN SYSTEM</span>
-              </div>
-            </div>
-            <p>منصة الأمن الذكي المتكاملة — نحمي ما يهمك على مدار الساعة بأحدث تقنيات الذكاء الاصطناعي.</p>
-            <div class="socials">
-              <a href="#" class="soc">𝕏</a>
-              <a href="#" class="soc">in</a>
-              <a href="#" class="soc">📷</a>
-              <a href="#" class="soc">▶</a>
-            </div>
-          </div>
-          <div class="footer-col">
-            <h4>المنتج</h4>
-            <ul>
-              <li><a href="#">المميزات</a></li>
-              <li><a href="#">الأسعار</a></li>
-              <li><a href="#">لوحة التحكم</a></li>
-              <li><a href="#">تكامل API</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>الشركة</h4>
-            <ul>
-              <li><a href="#">من نحن</a></li>
-              <li><a href="#">فريقنا</a></li>
-              <li><a href="#">وظائف</a></li>
-              <li><a href="#">المدونة</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>الدعم</h4>
-            <ul>
-              <li><a href="#">مركز المساعدة</a></li>
-              <li><a href="#">الوثائق</a></li>
-              <li><a href="#">حالة الخدمة</a></li>
-              <li><a href="#">الخصوصية</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2026 نظام أمان — Aman System. جميع الحقوق محفوظة.</p>
-        <div class="fb-links">
-          <a href="#">سياسة الخصوصية</a>
-          <a href="#">الشروط والأحكام</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Toast -->
-  <div class="toast" id="toast">
-    <div class="toast-ico">✅</div>
-    <div>
-      <div class="toast-title">تم الإرسال بنجاح!</div>
-      <div class="toast-sub">سيتواصل معك فريقنا قريباً</div>
+    <div class="server-status">
+      تأكد من تشغيل خادم التطبيق المحلي (Next.js) ليعمل النظام بشكل صحيح.
     </div>
   </div>
 
-  <!-- Back To Top -->
-  <button class="back-top" id="backTop" aria-label="العودة للأعلى">↑</button>
-
-  <script src="app.js"></script>
 </body>
 </html>
