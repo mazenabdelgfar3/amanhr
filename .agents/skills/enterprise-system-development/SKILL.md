@@ -539,6 +539,8 @@ Only after approval begin implementation.
 
 Never implement more than one phase at a time. Every phase must pass architecture review, security review, testing, and code review before moving to the next phase.
 
+After generating the Implementation Plan: STOP. Do NOT write any code. Wait for explicit user approval. Only after approval implement ONE module at a time. Never implement more than one module simultaneously.
+
 Work like a senior software architect, not just a code generator.
 
 =========================================

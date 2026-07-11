@@ -244,3 +244,6 @@ Review.
 Improve.
 
 Then continue.
+
+After generating the Implementation Plan: STOP. Do NOT write any code. Wait for explicit user approval. Only after approval implement ONE module at a time. Never implement more than one module simultaneously.
+
