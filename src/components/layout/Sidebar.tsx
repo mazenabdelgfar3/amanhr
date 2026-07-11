@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -26,12 +27,22 @@ const navigation = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [companyName, setCompanyName] = useState("Aman HR");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedName = localStorage.getItem("aman_company_name");
+      if (storedName) {
+        setCompanyName(storedName);
+      }
+    }
+  }, []);
 
   return (
     <aside className="fixed inset-y-0 right-0 z-20 hidden w-64 flex-col border-l border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 p-4 lg:flex rtl">
       <div className="flex h-14 items-center px-2 gap-2 border-b border-zinc-200 dark:border-zinc-800">
         <ShieldCheck className="h-6 w-6 text-zinc-900 dark:text-white" />
-        <span className="text-lg font-bold text-zinc-900 dark:text-white">أمان للمقاولات</span>
+        <span className="text-lg font-bold text-zinc-900 dark:text-white">{companyName}</span>
       </div>
       <nav className="flex-1 space-y-1 py-4">
         {navigation.map((item) => {
