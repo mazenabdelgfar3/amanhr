@@ -8,7 +8,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-zinc-50/50 dark:bg-zinc-950/50 text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
       {/* Sidebar for desktop */}
       <Sidebar />
 
@@ -18,7 +18,7 @@ export default function DashboardLayout({
         <Navbar />
 
         {/* Page Content area */}
-        <main className="flex-1 p-4 lg:p-6 rtl">
+        <main className="flex-1 p-6 lg:p-8 rtl">
           <div className="mx-auto max-w-7xl">
             {children}
           </div>

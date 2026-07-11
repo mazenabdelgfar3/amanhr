@@ -28,21 +28,21 @@ export default function ReportsSummary({ reportType, data }: ReportsSummaryProps
     const permission = data.filter((d) => d.status === "Permission").length;
 
     const stats = [
-      { name: "إجمالي السجلات", value: total, icon: CalendarRange, color: "text-zinc-500" },
-      { name: "أيام الحضور", value: present, icon: UserCheck, color: "text-green-600" },
-      { name: "أيام الغياب", value: absent, icon: UserMinus, color: "text-red-600" },
-      { name: "إجازات وأذونات", value: vacation + permission, icon: Briefcase, color: "text-amber-600" },
+      { name: "إجمالي سجلات الحضور والغياب", value: `${total} سجل`, icon: CalendarRange, color: "text-zinc-500" },
+      { name: "مجموع أيام الحضور الفعلي", value: `${present} يوم`, icon: UserCheck, color: "text-green-600 dark:text-green-400" },
+      { name: "مجموع أيام الغياب الكلي", value: `${absent} يوم`, icon: UserMinus, color: "text-red-600 dark:text-red-400" },
+      { name: "إجمالي الإجازات والأذونات", value: `${vacation + permission} يوم`, icon: Briefcase, color: "text-amber-600 dark:text-amber-400" },
     ];
 
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 rtl text-right">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rtl text-right font-sans">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between shadow-sm">
+          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between shadow-xs hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{stat.name}</span>
-              <span className="text-2xl font-bold mt-1 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
+              <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-350">{stat.name}</span>
+              <span className="text-2xl font-bold mt-3 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
             </div>
-            <stat.icon className={`h-8 w-8 ${stat.color}`} />
+            <stat.icon className={`h-9 w-9 ${stat.color} opacity-90`} />
           </div>
         ))}
       </div>
@@ -56,21 +56,21 @@ export default function ReportsSummary({ reportType, data }: ReportsSummaryProps
     const avgProduction = totalDays > 0 ? (totalProduction / totalDays).toFixed(1) : 0;
 
     const stats = [
-      { name: "أيام العمل المسجلة", value: totalDays, icon: CalendarRange, color: "text-zinc-500" },
-      { name: "إجمالي قيمة الإنتاجية", value: `${totalProduction.toLocaleString()} ج.م`, icon: TrendingUp, color: "text-green-600" },
-      { name: "إجمالي الساعات الإضافية", value: `${totalOvertime.toLocaleString()} ساعة`, icon: Clock, color: "text-indigo-600" },
-      { name: "متوسط الإنتاجية اليومي", value: `${avgProduction} ج.م`, icon: Coins, color: "text-amber-600" },
+      { name: "أيام العمل المسجلة بالكشف", value: `${totalDays} يوم`, icon: CalendarRange, color: "text-zinc-500" },
+      { name: "إجمالي قيمة الإنتاجية اليومية", value: `${totalProduction.toLocaleString()} ج.م`, icon: TrendingUp, color: "text-green-600 dark:text-green-400" },
+      { name: "إجمالي الساعات الإضافية للعمال", value: `${totalOvertime.toLocaleString()} ساعة`, icon: Clock, color: "text-blue-600 dark:text-blue-450" },
+      { name: "متوسط الإنتاج اليومي للمجموعة", value: `${avgProduction} ج.م`, icon: Coins, color: "text-amber-600 dark:text-amber-450" },
     ];
 
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 rtl text-right">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rtl text-right font-sans">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between shadow-sm">
+          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between shadow-xs hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{stat.name}</span>
-              <span className="text-2xl font-bold mt-1 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
+              <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-350">{stat.name}</span>
+              <span className="text-2xl font-bold mt-3 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
             </div>
-            <stat.icon className={`h-8 w-8 ${stat.color}`} />
+            <stat.icon className={`h-9 w-9 ${stat.color} opacity-90`} />
           </div>
         ))}
       </div>
@@ -85,21 +85,21 @@ export default function ReportsSummary({ reportType, data }: ReportsSummaryProps
     const totalNet = data.reduce((sum, d) => sum + Number(d.net_salary || 0), 0);
 
     const stats = [
-      { name: "إجمالي الرواتب الأساسية", value: `${totalBase.toLocaleString()} ج.م`, icon: DollarSign, color: "text-zinc-500" },
-      { name: "إجمالي حوافز الإنتاج", value: `${totalProduction.toLocaleString()} / الإضافي: ${totalOvertime.toLocaleString()} ج.م`, icon: TrendingUp, color: "text-green-600" },
-      { name: "إجمالي السلف المخصومة", value: `${totalAdvances.toLocaleString()} ج.م`, icon: Coins, color: "text-red-600" },
-      { name: "صافي الرواتب المصروفة", value: `${totalNet.toLocaleString()} ج.م`, icon: UserCheck, color: "text-emerald-600 font-bold" },
+      { name: "إجمالي الرواتب الأساسية", value: `${totalBase.toLocaleString()} ج.م`, icon: DollarSign, color: "text-zinc-550" },
+      { name: "حوافز الإنتاج والساعات الإضافية", value: `${(totalProduction + totalOvertime).toLocaleString()} ج.م`, icon: TrendingUp, color: "text-green-600 dark:text-green-400" },
+      { name: "إجمالي السلف المخصومة للعمال", value: `${totalAdvances.toLocaleString()} ج.م`, icon: Coins, color: "text-red-600 dark:text-red-400" },
+      { name: "صافي الرواتب المصروفة", value: `${totalNet.toLocaleString()} ج.م`, icon: UserCheck, color: "text-emerald-600 dark:text-emerald-400 font-bold" },
     ];
 
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 rtl text-right">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rtl text-right font-sans">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between shadow-sm">
+          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between shadow-xs hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{stat.name}</span>
-              <span className="text-xl font-bold mt-1 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
+              <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-350">{stat.name}</span>
+              <span className="text-2xl font-bold mt-3 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
             </div>
-            <stat.icon className={`h-8 w-8 ${stat.color}`} />
+            <stat.icon className={`h-9 w-9 ${stat.color} opacity-90`} />
           </div>
         ))}
       </div>
@@ -113,21 +113,21 @@ export default function ReportsSummary({ reportType, data }: ReportsSummaryProps
     const deductedAmount = data.filter((d) => d.status === "Deducted").reduce((sum, d) => sum + Number(d.amount), 0);
 
     const stats = [
-      { name: "إجمالي السلف المطلوبة", value: `${totalAdvancesAmount.toLocaleString()} ج.م`, icon: DollarSign, color: "text-zinc-500" },
-      { name: "سلفيات معتمدة ومسددة", value: `${deductedAmount.toLocaleString()} ج.م`, icon: UserCheck, color: "text-green-600" },
-      { name: "سلفيات معلقة للمراجعة", value: `${pendingAmount.toLocaleString()} ج.م`, icon: Briefcase, color: "text-amber-600" },
-      { name: "متبقي بانتظار السداد", value: `${(approvedAmount - deductedAmount).toLocaleString()} ج.م`, icon: Coins, color: "text-indigo-600" },
+      { name: "إجمالي السلف الكلية المطلوبة", value: `${totalAdvancesAmount.toLocaleString()} ج.م`, icon: DollarSign, color: "text-zinc-550" },
+      { name: "سلفيات معتمدة ومسددة للشركة", value: `${deductedAmount.toLocaleString()} ج.م`, icon: UserCheck, color: "text-green-600 dark:text-green-400" },
+      { name: "سلفيات معلقة بانتظار المراجعة", value: `${pendingAmount.toLocaleString()} ج.م`, icon: Briefcase, color: "text-amber-600 dark:text-amber-400" },
+      { name: "متبقي بانتظار الخصم والسداد", value: `${(approvedAmount - deductedAmount).toLocaleString()} ج.م`, icon: Coins, color: "text-blue-600 dark:text-blue-450" },
     ];
 
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 rtl text-right">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rtl text-right font-sans">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between shadow-sm">
+          <div key={stat.name} className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between shadow-xs hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{stat.name}</span>
-              <span className="text-xl font-bold mt-1 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
+              <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-350">{stat.name}</span>
+              <span className="text-2xl font-bold mt-3 text-zinc-900 dark:text-white font-mono">{stat.value}</span>
             </div>
-            <stat.icon className={`h-8 w-8 ${stat.color}`} />
+            <stat.icon className={`h-9 w-9 ${stat.color} opacity-90`} />
           </div>
         ))}
       </div>

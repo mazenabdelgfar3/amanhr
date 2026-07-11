@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, CheckCircle, AlertCircle, TrendingUp, Clock } from "lucide-react";
+import { Users, CheckCircle, TrendingUp, Clock } from "lucide-react";
 import { DailyWorkRow } from "../types";
 
 interface SummaryCardsProps {
@@ -28,63 +28,61 @@ export default function SummaryCards({ rows }: SummaryCardsProps) {
   );
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 rtl text-right">
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rtl text-right font-sans">
       
       {/* Total Active Workers */}
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 shadow-sm space-y-2">
+      <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-6 shadow-xs flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-zinc-500">إجمالي العمال في الكشف</span>
-          <Users className="h-5 w-5 text-zinc-400" />
+          <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-300">إجمالي العمال المقيدين</span>
+          <Users className="h-5 w-5 text-zinc-400 dark:text-zinc-600" />
         </div>
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold font-mono text-zinc-950 dark:text-white">{stats.total}</span>
-          <span className="text-xs text-zinc-400">عامل مسجل</span>
+        <div className="flex items-baseline gap-2 mt-4">
+          <span className="text-3xl font-bold font-mono text-zinc-900 dark:text-white">{stats.total}</span>
+          <span className="text-sm font-semibold text-zinc-500 dark:text-zinc-400">عامل مسجل</span>
         </div>
       </div>
 
       {/* Attendance Stats */}
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 shadow-sm space-y-2">
+      <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-6 shadow-xs flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-zinc-500">الحضور والغياب</span>
-          <div className="flex gap-1">
-            <CheckCircle className="h-5 w-5 text-green-500" />
-          </div>
+          <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-300">نسب الحضور والغياب اليوم</span>
+          <CheckCircle className="h-5 w-5 text-green-500/80 dark:text-green-500/60" />
         </div>
-        <div className="flex items-baseline justify-between">
+        <div className="flex items-baseline justify-between mt-4">
           <div>
-            <span className="text-2xl font-bold font-mono text-zinc-950 dark:text-white">{stats.present}</span>
-            <span className="text-xs text-green-600 mr-1">حاضر</span>
+            <span className="text-3xl font-bold font-mono text-zinc-900 dark:text-white">{stats.present}</span>
+            <span className="text-sm font-bold text-green-600 dark:text-green-400 mr-1.5">حاضر</span>
           </div>
           <div className="text-left">
-            <span className="text-lg font-bold font-mono text-zinc-500">{stats.absent}</span>
-            <span className="text-xs text-red-500 mr-1">غائب</span>
+            <span className="text-xl font-bold font-mono text-zinc-500 dark:text-zinc-400">{stats.absent}</span>
+            <span className="text-sm font-bold text-red-500 mr-1.5">غائب</span>
           </div>
         </div>
       </div>
 
       {/* Total Daily Production */}
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 shadow-sm space-y-2">
+      <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-6 shadow-xs flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-zinc-500">إجمالي إنتاج اليوم</span>
-          <TrendingUp className="h-5 w-5 text-indigo-500" />
+          <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-300">إجمالي كمية الإنتاج اليوم</span>
+          <TrendingUp className="h-5 w-5 text-blue-500/80 dark:text-blue-500/60" />
         </div>
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold font-mono text-zinc-950 dark:text-white">
-            {stats.production.toLocaleString("ar-EG")}
+        <div className="flex items-baseline gap-2 mt-4">
+          <span className="text-3xl font-bold font-mono text-zinc-900 dark:text-white">
+            {stats.production.toLocaleString()}
           </span>
-          <span className="text-xs text-zinc-400">وحدة إنتاج</span>
+          <span className="text-sm font-semibold text-zinc-500 dark:text-zinc-400">وحدة إنتاج</span>
         </div>
       </div>
 
       {/* Total Overtime Hours */}
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 shadow-sm space-y-2">
+      <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-6 shadow-xs flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-650 transition-all duration-150">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-zinc-500">ساعات الإضافي الكلية</span>
-          <Clock className="h-5 w-5 text-amber-500" />
+          <span className="text-sm font-semibold text-zinc-750 dark:text-zinc-300">إجمالي ساعات العمل الإضافي</span>
+          <Clock className="h-5 w-5 text-amber-500/80 dark:text-amber-500/60" />
         </div>
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold font-mono text-zinc-950 dark:text-white">{stats.overtime}</span>
-          <span className="text-xs text-zinc-400">ساعة إضافية</span>
+        <div className="flex items-baseline gap-2 mt-4">
+          <span className="text-3xl font-bold font-mono text-zinc-900 dark:text-white">{stats.overtime}</span>
+          <span className="text-sm font-semibold text-zinc-500 dark:text-zinc-400">ساعة إضافية</span>
         </div>
       </div>
 
