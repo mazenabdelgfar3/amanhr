@@ -8,7 +8,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans">
+    <div className="min-h-screen bg-zinc-50/50 dark:bg-zinc-950/50 text-zinc-900 dark:text-zinc-100">
       {/* Sidebar for desktop */}
       <Sidebar />
 
